@@ -27,6 +27,7 @@ def numzones_per_country():
     return countryDict
     
 
+
 def numzones_per_continent():
     import csv
 
@@ -42,12 +43,14 @@ def numzones_per_continent():
         
         if zoneList[i][2].split("/")[0] not in continentList:
             continentList.append(zoneList[i][2].split("/")[0])
-            
-        print"lololosfsadfl"
         
-    
+    for i in range(0, len(continentList)):
+        continentDict[continentList[i]] = 0
         
-    
+        for j in range(0, len(zoneList)):
+            if continentList[i] == zoneList[j][2].split("/")[0]:
+                continentDict[continentList[i]] += 1
+           
     
     return continentDict
 
@@ -56,4 +59,6 @@ def numzones_per_continent():
     
 
     
-print numzones_per_country()
+#print numzones_per_country()
+
+print numzones_per_continent()
