@@ -43,8 +43,8 @@ def numzones_per_continent():
         if zoneList[i][2].split("/")[0] not in continentList:
             continentList.append(zoneList[i][2].split("/")[0])
             
-        print"lololol"
-
+        print"lololosfsadfl"
+        
     
         
     
