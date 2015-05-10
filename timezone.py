@@ -55,10 +55,17 @@ def numzones_per_continent():
     return continentDict
 
 
+
+def zone_countries():
+    
+    with open("/Users/Daniel/pyha/timezone.csv", "r") as timezoneFile:
+            timezoneData = timezoneFile.readlines()
+        timezoneList = list(csv.reader(timezoneData)
+        
     
     
 
     
 #print numzones_per_country()
-
-print numzones_per_continent()
+#print numzones_per_continent()
+print zone_countries()
