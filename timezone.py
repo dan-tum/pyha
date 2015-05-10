@@ -57,15 +57,36 @@ def numzones_per_continent():
 
 
 def zone_countries():
+    import csv
     
+    #opening of data
     with open("/Users/Daniel/pyha/timezone.csv", "r") as timezoneFile:
             timezoneData = timezoneFile.readlines()
-        timezoneList = list(csv.reader(timezoneData)
-        
+    timezoneList = list(csv.reader(timezoneData))
+            
+    with open('/Users/Daniel/pyha/zone.csv', "r") as zoneFile:
+        zoneData = zoneFile.readlines()
+    zoneList = list(csv.reader(zoneData))
     
+    #create abreviationList
+    abreviationList = []
+    
+    for i in range(0, len(timezoneList)):
+        
+        if timezoneList[i][1] not in abreviationList:
+            abreviationList.append(timezoneList[i][2])
+        
+    for abreviation in range(0, len(abreviationList)):
+        
+        for i in range (0, 
+    
+    timezoneDict = {}    
+        
+    return timezoneDict
     
 
     
-#print numzones_per_country()
-#print numzones_per_continent()
+print numzones_per_country()
+print numzones_per_continent()
 print zone_countries()
+    
