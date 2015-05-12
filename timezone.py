@@ -24,7 +24,7 @@ def numzones_per_country():
         elif zoneList[i][1] in countryDict:
             countryDict[zoneList[i][1]] += 1
             
-            print "lololololo"
+           
     
     return countryDict
     
