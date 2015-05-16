@@ -9,7 +9,7 @@ def numzones_per_country():
     import csv
     
     #reading Zone and writing to list
-    with open('/Users/Daniel/pyha/zone.csv', "r") as zoneFile:
+    with open('/Users/Daniel/Python/pyha/zone.csv', "r") as zoneFile:
         zoneData = zoneFile.readlines()
     zoneList = list(csv.reader(zoneData))
     
@@ -33,7 +33,7 @@ def numzones_per_country():
 def numzones_per_continent():
     import csv
 
-    with open('/Users/Daniel/pyha/zone.csv', "r") as zoneFile:
+    with open('/Users/Daniel/Python/pyha/zone.csv', "r") as zoneFile:
         zoneData = zoneFile.readlines()
     zoneList = list(csv.reader(zoneData))
     
@@ -62,33 +62,41 @@ def zone_countries():
     import csv
     
     #opening of data
-    with open("/Users/Daniel/pyha/timezone.csv", "r") as timezoneFile:
+    with open("/Users/Daniel/Python/pyha/timezone.csv", "r") as timezoneFile:
             timezoneData = timezoneFile.readlines()
     timezoneList = list(csv.reader(timezoneData))
             
-    with open('/Users/Daniel/pyha/zone.csv', "r") as zoneFile:
+    with open('/Users/Daniel/Python/pyha/zone.csv', "r") as zoneFile:
         zoneData = zoneFile.readlines()
     zoneList = list(csv.reader(zoneData))
     
     #create abreviationList
     abreviationList = []
+    timezoneDict = {}   
     
     for i in range(0, len(timezoneList)):
         
         if timezoneList[i][1] not in abreviationList:
-            abreviationList.append(timezoneList[i][2])
+            abreviationList.append(timezoneList[i][1])
         
-    for abreviation in range(0, len(abreviationList)):
-        
-        for i in range (0, 
-    
-    timezoneDict = {}    
-        
+    for i in range(0, len(abreviationList)):
+        countryList = []
+        for j in range (0, len(timezoneList)):
+            
+            if timezoneList[j][1] == abreviationList[i]:
+                countryNumber = timezoneList[j][0]
+                country = zoneList[int(countryNumber)-1][2].split("/")[1]
+                if country not in countryList:
+                    countryList.append(country)
+                timezoneDict[abreviationList[i]] = countryList
+                
+    print(timezoneDict)
     return timezoneDict
     
 
     
-print numzones_per_country()
-print numzones_per_continent()
-print zone_countries()
+#print numzones_per_country()
+#print numzones_per_continent()
     
+print(zone_countries())
+
